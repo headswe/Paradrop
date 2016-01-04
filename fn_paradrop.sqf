@@ -11,12 +11,5 @@ if(_location isEqualTyp "") then
 _pos set [2,_zHeight];
 if(_unit isKindOf "Man")
 {
-
+	[_unit,_pos,_autoDeploy,_deployHeight,_static] call fn_paradrop_action.sqf
 };
-	_classname = "Steerable_Parachute_F";
-	if(_static) then { _classname = ""; };
-	_unit setpos _pos;
-	_chute = createVehicle [_classname, position _unit, [], direction _unit, 'FLY'];
-	_chute setPos (getPos _unit);
-	_unit assignAsDriver _chute;
-	_unit moveIndriver _chute;
